@@ -1,5 +1,7 @@
 import { Client } from "pg";
+
 import "dotenv/config";
+
 import fs from "fs";
 
 const startDatabaseTests = async (database: Client) => {

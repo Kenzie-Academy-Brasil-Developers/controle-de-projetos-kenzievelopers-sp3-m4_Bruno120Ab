@@ -19,6 +19,7 @@ const config = () => {
     port: Number(process.env.DB_PORT!),
   };
 };
+
 const client = new Client(config());
 
 const startDatabase = async () => {
