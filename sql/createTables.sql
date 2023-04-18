@@ -1,3 +1,5 @@
+DROP TYPE IF EXISTS "OS";
+
 CREATE TYPE "OS" AS ENUM('Windows', 'Linux', 'MacOS');
 
 CREATE TABLE IF NOT EXISTS developers (
@@ -7,22 +9,22 @@ CREATE TABLE IF NOT EXISTS developers (
 );
 
 CREATE TABLE IF NOT EXISTS developer_infos (
-     "id"        SERIAL PRIMARY KEY,
+     "id"                SERIAL PRIMARY KEY,
      "developerSince"    DATE NOT NULL,
-     "preferredOS"       OS NOT NULL,
+     "preferredOS"       "OS" NOT NULL,
      "developerId"       INTEGER UNIQUE NOT NULL,
      FOREIGN KEY ("developerId") REFERENCES developers(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS projects (
-     id             SERIAL PRIMARY KEY,
-     "name"           VARCHAR(50) NOT NULL,
-     "description"    TEXT,
-     "estimatedTime"  VARCHAR(20) NOT NULL,
-     repository     VARCHAR(50) NOT NULL,
-     "startDate"      DATE NOT NULL,
-     "endDate"        DATE,
-     "developerId"    INTEGER DEFAULT NULL,
+     id                  SERIAL PRIMARY KEY,
+     "name"              VARCHAR(50) NOT NULL,
+     "description"       TEXT,
+     "estimatedTime"     VARCHAR(20) NOT NULL,
+     repository          VARCHAR(50) NOT NULL,
+     "startDate"         DATE NOT NULL,
+     "endDate"           DATE,
+     "developerId"       INTEGER DEFAULT NULL,
      FOREIGN KEY ("developerId") REFERENCES developers(id)  ON DELETE SET DEFAULT
 );
 

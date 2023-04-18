@@ -104,7 +104,7 @@ async function updateProject(req: Request, res: Response): Promise<Response>{
      const queryResultDevId = await client.query(queryconfig)
 
      if( queryResultDevId.rowCount === 0){
-          return res.status(404).json({message: "developer not found!"})
+          return res.status(404).json({message: "Developer not found!"})
      }
  
      const queryString: string = format(
@@ -215,7 +215,7 @@ async function deleteTechnology( req: Request, res: Response): Promise<Response>
      return res.status(204).send()
 }
 
-async function createTechnologiesProject (  req: Request, res: Response ){
+async function createTechnologiesProject (  req: Request, res: Response ): Promise<Response>{
      const  name:string  = req.body.name; 
      const projectId:number = parseInt(req.params.id);
 

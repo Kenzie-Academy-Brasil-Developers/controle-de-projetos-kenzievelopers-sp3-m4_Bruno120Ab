@@ -2,9 +2,8 @@ import { NextFunction, Request, Response } from "express";
 
 import { QueryConfig, QueryResult } from "pg";
 
-import format from "pg-format";
-
 import { client } from "../database";
+
 import { Iformation } from "../interface/project";
 
 async function ensureIdExistsDev(req:Request, res:Response, next:NextFunction): Promise<Response | void>{
@@ -37,7 +36,7 @@ async function ensureIdExistsDev(req:Request, res:Response, next:NextFunction): 
      }
      
      return next()
-};
+}
 
 async function ensureIdExistsByParams(req:Request, res:Response, next:NextFunction): Promise<Response | void>{
      const url = req.route;

@@ -27,7 +27,6 @@ async function ensureIdExistsProject(req:Request, res:Response, next:NextFunctio
      if(queryResult.rowCount === 0) {
           return res.status(404).json({ message: "Developer not found."
      })
-
      }
 
      return next()
